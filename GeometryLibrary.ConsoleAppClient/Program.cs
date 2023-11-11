@@ -1,7 +1,7 @@
 ﻿using GeometryLibrary.Logic.Services;
-using GeometryLibrary.Logic.Ships;
+using GeometryLibrary.Logic.Shapes;
 
-var ships = new List<IShip>
+var ships = new List<IShape>
 {
     new Circle(10),
     new Square(4),

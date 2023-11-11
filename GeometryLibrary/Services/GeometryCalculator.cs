@@ -1,16 +1,16 @@
-﻿using GeometryLibrary.Logic.Ships;
+﻿using GeometryLibrary.Logic.Shapes;
 
 namespace GeometryLibrary.Logic.Services;
 
 public class GeometryCalculator : IGeometryCalculatorArea
 {
-    public double CalculateArea(IShip ship)
+    public double CalculateArea(IShape shape)
     {
-        if (ship == null) throw new ArgumentNullException(nameof(ship));
+        if (shape == null) throw new ArgumentNullException(nameof(shape));
 
-        var strategy = ship.GetAreaStrategy();
+        var strategy = shape.GetAreaStrategy();
 
         return strategy?.CalculateArea() ??
-               throw new InvalidOperationException($"Unsupported ship type: {ship.GetType().Name}");
+               throw new InvalidOperationException($"Unsupported shape type: {shape.GetType().Name}");
     }
 }

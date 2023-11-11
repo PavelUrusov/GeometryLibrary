@@ -1,5 +1,5 @@
 ﻿using GeometryLibrary.Logic.Services;
-using GeometryLibrary.Logic.Ships;
+using GeometryLibrary.Logic.Shapes;
 using GeometryLibrary.Logic.Strategies;
 using Moq;
 using Xunit;
@@ -9,37 +9,37 @@ namespace GeometryLibrary.Tests.Logic.Services;
 public class GeometryCalculatorTest
 {
     [Fact]
-    public void CalculateArea_UnknownShipType_ThrowsException()
+    public void CalculateArea_UnknownShapesType_ThrowsException()
     {
         // Arrange
-        IShip unknownShip = new UnknownShip();
+        IShape unknownShape = new UnknownShape();
         var calculator = new GeometryCalculator();
 
         // Act & Assert
-        Assert.Throws<InvalidOperationException>(() => calculator.CalculateArea(unknownShip));
+        Assert.Throws<InvalidOperationException>(() => calculator.CalculateArea(unknownShape));
     }
 
     [Fact]
-    public void CalculateArea_NullShip_ThrowsException()
+    public void CalculateArea_NullShape_ThrowsException()
     {
         // Arrange
-        IShip unknownShip = null!;
+        IShape unknownShape = null!;
         var calculator = new GeometryCalculator();
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => calculator.CalculateArea(unknownShip));
+        Assert.Throws<ArgumentNullException>(() => calculator.CalculateArea(unknownShape));
     }
 
 
     [Fact]
-    public void CalculateArea_ShouldWorkForDifferentShipTypes()
+    public void CalculateArea_ShouldWorkForDifferentShapesTypes()
     {
         // Arrange
-        var circleMock = new Mock<IShip>();
+        var circleMock = new Mock<IShape>();
         circleMock.Setup(c => c.GetAreaStrategy()).Returns(new CircleAreaStrategy(5.0));
-        var triangleMock = new Mock<IShip>();
+        var triangleMock = new Mock<IShape>();
         triangleMock.Setup(t => t.GetAreaStrategy()).Returns(new TriangleAreaStrategy(3.0, 4.0, 5.0));
-        var squareMock = new Mock<IShip>();
+        var squareMock = new Mock<IShape>();
         squareMock.Setup(s => s.GetAreaStrategy()).Returns(new SquareAreaStrategy(4.0));
         var calculator = new GeometryCalculator();
 
@@ -54,7 +54,7 @@ public class GeometryCalculatorTest
         Assert.Equal(16.0000, squareArea);
     }
 
-    private class UnknownShip : IShip
+    private class UnknownShape : IShape
     {
         public IAreaStrategy GetAreaStrategy()
         {

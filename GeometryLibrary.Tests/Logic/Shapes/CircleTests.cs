@@ -1,9 +1,9 @@
 ﻿using GeometryLibrary.Logic.Exceptions;
-using GeometryLibrary.Logic.Ships;
+using GeometryLibrary.Logic.Shapes;
 using GeometryLibrary.Logic.Strategies;
 using Xunit;
 
-namespace GeometryLibrary.Tests.Logic.Ships;
+namespace GeometryLibrary.Tests.Logic.Shapes;
 
 public class CircleTests
 {
@@ -27,7 +27,7 @@ public class CircleTests
         var radius = -5.0;
 
         // Act & Assert
-        Assert.Throws<ShipException>(() =>
+        Assert.Throws<ShapeException>(() =>
         {
             var circle = new Circle(radius);
         });

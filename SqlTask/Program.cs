@@ -3,20 +3,10 @@ using Npgsql;
 
 Console.OutputEncoding = Encoding.UTF8;
 const string connectionString = "Host=localhost;Username=postgres;Password=admin;Database=psqltaskdb";
+var psqlQuery = GetProductsCategoriesPsqlQuery();
 
 using var connection = new NpgsqlConnection(connectionString);
 connection.Open();
-
-var psqlQuery = @"
-        SELECT
-            p.product_name AS ProductName,
-            c.category_name AS CategoryName
-        FROM
-            products p
-        LEFT JOIN
-            product_categories pc ON p.product_id = pc.product_id
-        LEFT JOIN
-            categories c ON pc.category_id = c.category_id;";
 
 using var command = new NpgsqlCommand(psqlQuery, connection);
 using var reader = command.ExecuteReader();
@@ -31,8 +21,21 @@ while (reader.Read())
 
 return;
 
+string GetProductsCategoriesPsqlQuery()
+{
+    return @"
+        SELECT
+            p.product_name AS ProductName,
+            c.category_name AS CategoryName
+        FROM
+            products p
+        LEFT JOIN
+            product_categories pc ON p.product_id = pc.product_id
+        LEFT JOIN
+            categories c ON pc.category_id = c.category_id;";
+}
 
-void CreateProductCategoryTables(NpgsqlConnection connection)
+void CreateProductCategoryTables(string connectionString)
 {
     var createTables = @"
             CREATE TABLE products (
@@ -50,7 +53,7 @@ void CreateProductCategoryTables(NpgsqlConnection connection)
                 category_id INT REFERENCES categories(category_id),
                 PRIMARY KEY (product_id, category_id)
            );";
-
+    using var connection = new NpgsqlConnection(connectionString);
     using (var command = new NpgsqlCommand(createTables, connection))
     {
         command.ExecuteNonQuery();

@@ -2,15 +2,15 @@
 using GeometryLibrary.Logic.Strategies;
 using GeometryLibrary.Logic.Utils;
 
-namespace GeometryLibrary.Logic.Ships;
+namespace GeometryLibrary.Logic.Shapes;
 
-public class Circle : IShip
+public class Circle : IShape
 {
     public readonly double Radius;
 
     public Circle(double radius)
     {
-        if (!GeometryUtils.IsPositive(radius)) throw new ShipException("The radius must be >= 0", radius);
+        if (GeometryUtils.IsPositiveNumber(radius) is false) throw new ShapeException("The radius must be >= 0", radius);
 
         Radius = radius;
     }

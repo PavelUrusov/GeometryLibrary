@@ -1,8 +1,8 @@
 ﻿using GeometryLibrary.Logic.Strategies;
 
-namespace GeometryLibrary.Logic.Ships;
+namespace GeometryLibrary.Logic.Shapes;
 
-public interface IShip
+public interface IShape
 {
     IAreaStrategy GetAreaStrategy();
     string? ToString();

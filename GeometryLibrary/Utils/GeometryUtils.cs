@@ -2,7 +2,7 @@
 
 public static class GeometryUtils
 {
-    public static bool IsPositive(double number)
+    public static bool IsPositiveNumber(double number)
     {
         return number > 0;
     }

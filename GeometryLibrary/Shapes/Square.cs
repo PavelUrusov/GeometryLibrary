@@ -2,15 +2,15 @@
 using GeometryLibrary.Logic.Strategies;
 using GeometryLibrary.Logic.Utils;
 
-namespace GeometryLibrary.Logic.Ships;
+namespace GeometryLibrary.Logic.Shapes;
 
-public class Square : IShip
+public class Square : IShape
 {
     public readonly double Side;
 
     public Square(double side)
     {
-        if (!GeometryUtils.IsPositive(side)) throw new ShipException("The side must be >= 0", side);
+        if (GeometryUtils.IsPositiveNumber(side) is false) throw new ShapeException("The side must be >= 0", side);
         Side = side;
     }
 

@@ -1,9 +1,9 @@
 ﻿using GeometryLibrary.Logic.Exceptions;
 using GeometryLibrary.Logic.Strategies;
 
-namespace GeometryLibrary.Logic.Ships;
+namespace GeometryLibrary.Logic.Shapes;
 
-public class Triangle : IShip
+public class Triangle : IShape
 {
     public readonly double SideA;
     public readonly double SideB;
@@ -11,7 +11,7 @@ public class Triangle : IShip
 
     public Triangle(double sideA, double sideB, double sideC)
     {
-        if (IsTriangle(sideA, sideB, sideC) is false) throw new ShipException("There is no triangle with such sides");
+        if (IsTriangle(sideA, sideB, sideC) is false) throw new ShapeException("There is no triangle with such sides");
         SideA = sideA;
         SideB = sideB;
         SideC = sideC;

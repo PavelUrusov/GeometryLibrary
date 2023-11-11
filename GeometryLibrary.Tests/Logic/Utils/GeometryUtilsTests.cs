@@ -12,7 +12,7 @@ public class GeometryUtilsTests
         var number = 5.0;
 
         //Act
-        var result = GeometryUtils.IsPositive(number);
+        var result = GeometryUtils.IsPositiveNumber(number);
 
         //Assert
         Assert.True(result);

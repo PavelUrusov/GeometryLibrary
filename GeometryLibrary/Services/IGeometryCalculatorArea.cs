@@ -1,8 +1,8 @@
-﻿using GeometryLibrary.Logic.Ships;
+﻿using GeometryLibrary.Logic.Shapes;
 
 namespace GeometryLibrary.Logic.Services;
 
 public interface IGeometryCalculatorArea
 {
-    double CalculateArea(IShip ship);
+    double CalculateArea(IShape shape);
 }

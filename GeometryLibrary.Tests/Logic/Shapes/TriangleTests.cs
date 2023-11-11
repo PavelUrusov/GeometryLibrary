@@ -1,9 +1,9 @@
 ﻿using GeometryLibrary.Logic.Exceptions;
-using GeometryLibrary.Logic.Ships;
+using GeometryLibrary.Logic.Shapes;
 using GeometryLibrary.Logic.Strategies;
 using Xunit;
 
-namespace GeometryLibrary.Tests.Logic.Ships;
+namespace GeometryLibrary.Tests.Logic.Shapes;
 
 public class TriangleTests
 {
@@ -27,7 +27,7 @@ public class TriangleTests
         double a = 8.0, b = 6.0, c = 1000.0;
 
         //Act & Assert
-        Assert.Throws<ShipException>(() =>
+        Assert.Throws<ShapeException>(() =>
         {
             var triangle = new Triangle(a, b, c);
         });
