@@ -4,6 +4,11 @@
 
 GeometryLibrary is a versatile library for calculating the area of various geometric shapes. It offers a set of shape classes,each with its own area calculation strategy. The library is designed to be user-friendly and extensible, allowing users to effortlessly compute the area of different shapes.
 
+## Prerequisites
+
+Before using the library,  ensure that you have the following prerequisites:
+
+- [.NET Core SDK](https://dotnet.microsoft.com/download) installed
 ## Table of Contents
 
 - [Installation](#installation)
