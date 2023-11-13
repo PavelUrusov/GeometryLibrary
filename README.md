@@ -21,7 +21,7 @@ Before using the library,  ensure that you have the following prerequisites:
 1. Clone the repository:
    ```shell
    git clone https://github.com/PavelUrusov/GeometryLibrary.git
-   d
+   
 2. Build the solution:
     ```shell
     cd GeometryLibrary
