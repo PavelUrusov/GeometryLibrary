@@ -37,7 +37,7 @@ The library provides a Geometry Calculator class that implements the IGeometryCa
 using GeometryLibrary.Logic.Services;
 using GeometryLibrary.Logic.Shapes;
 
-var ships = new List<IShape>
+var shapes = new List<IShape>
 {
     new Circle(10),
     new Square(4),
@@ -46,9 +46,9 @@ var ships = new List<IShape>
 
 var calc = new GeometryCalculator();
 
-foreach (var ship in ships)
+foreach (var shape in shapes)
 {
-    Console.WriteLine($"Ship:{ship.ToString()}, Area: {calc.CalculateArea(ship)}");
+    Console.WriteLine($"Ship:{shape.ToString()}, Area: {calc.CalculateArea(shape)}");
 }
 ```
 
